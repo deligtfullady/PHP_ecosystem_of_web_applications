@@ -1,0 +1,17 @@
+[Unit]
+Description=Reminder bot: диалог с пользователями в Telegram
+After=network-online.target
+
+[Service]
+Type=simple
+User=www-data
+WorkingDirectory=/var/www/telegram-reminder-bot
+ExecStart=/usr/bin/php8.2 /var/www/telegram-reminder-bot/runner -c tg_messages
+ExecReload=/bin/kill -HUP $MAINPID
+KillSignal=SIGTERM
+TimeoutStopSec=30
+Restart=always
+RestartSec=3
+
+[Install]
+WantedBy=multi-user.target

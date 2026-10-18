@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="vendor/phpunit/phpunit/phpunit.xsd"
+         bootstrap="vendor/autoload.php"
+         colors="true"
+         cacheDirectory=".phpunit.cache"
+         defaultTestSuite="unit"
+         beStrictAboutTestsThatDoNotTestAnything="true"
+         beStrictAboutCoverageMetadata="false"
+         failOnRisky="false"
+         failOnWarning="false">
+    <testsuites>
+        <testsuite name="unit">
+            <directory>tests</directory>
+        </testsuite>
+        <!-- Намеренно «сломанные» тесты для задания «получить все типы результатов»; запуск: --testsuite demo -->
+        <testsuite name="demo">
+            <directory>tests-demo</directory>
+        </testsuite>
+    </testsuites>
+    <source>
+        <include>
+            <directory suffix=".php">app</directory>
+        </include>
+        <exclude>
+            <directory>app/Commands</directory>
+            <file>app/Application.php</file>
+            <file>app/Cache/Redis.php</file>
+            <file>app/Queue/RabbitMQ.php</file>
+            <file>app/Telegram/CurlHttpClient.php</file>
+        </exclude>
+    </source>
+</phpunit>

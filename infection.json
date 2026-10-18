@@ -1,0 +1,10 @@
+{
+    "timeout": 300,
+    "source": {
+        "directories": ["app/"],
+        "excludes": ["Commands", "Application.php", "Cache/Redis.php", "Queue/RabbitMQ.php", "Telegram/CurlHttpClient.php"]
+    },
+    "logs": {
+        "text": "./infection.log"
+    }
+}

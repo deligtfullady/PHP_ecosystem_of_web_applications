@@ -1,0 +1,17 @@
+[Unit]
+Description=Reminder bot: обработчик очереди RabbitMQ
+After=network-online.target rabbitmq-server.service
+
+[Service]
+Type=simple
+User=www-data
+WorkingDirectory=/var/www/telegram-reminder-bot
+ExecStart=/usr/bin/php8.2 /var/www/telegram-reminder-bot/runner -c queue_manager
+ExecReload=/bin/kill -HUP $MAINPID
+KillSignal=SIGTERM
+TimeoutStopSec=30
+Restart=always
+RestartSec=3
+
+[Install]
+WantedBy=multi-user.target

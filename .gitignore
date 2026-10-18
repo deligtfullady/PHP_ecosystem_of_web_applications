@@ -1,0 +1,9 @@
+/vendor/
+/.env
+/storage/*
+!/storage/.gitkeep
+/covers_html/
+/infection.log
+/.phpunit.cache/
+/.phpunit.result.cache
+composer.phar

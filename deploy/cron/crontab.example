@@ -1,0 +1,13 @@
+# Установка:  crontab deploy/cron/crontab.example     Просмотр:  crontab -l
+# Путь к проекту замените на свой.
+
+SHELL=/bin/bash
+PATH=/usr/local/bin:/usr/bin:/bin
+
+# Каждую минуту проверяем, есть ли события к отправке (один проход handle_events)
+* * * * * php8.2 /var/www/telegram-reminder-bot/runner -c handle_events >> /var/log/reminder-cron.log 2>&1
+
+# Если нужен запуск каждые 20 секунд: cron умеет минимум раз в минуту, поэтому три записи со сдвигом
+# * * * * * php8.2 /var/www/telegram-reminder-bot/runner -c some_task
+# * * * * * sleep 20; php8.2 /var/www/telegram-reminder-bot/runner -c some_task
+# * * * * * sleep 40; php8.2 /var/www/telegram-reminder-bot/runner -c some_task
