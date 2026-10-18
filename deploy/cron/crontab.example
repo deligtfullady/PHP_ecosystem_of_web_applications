@@ -1,5 +1,4 @@
 # Установка:  crontab deploy/cron/crontab.example     Просмотр:  crontab -l
-# Путь к проекту замените на свой.
 
 SHELL=/bin/bash
 PATH=/usr/local/bin:/usr/bin:/bin
