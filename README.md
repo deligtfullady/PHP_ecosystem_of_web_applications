@@ -11,8 +11,6 @@
 | 6. Кэширование | PSR-16 адаптер Redis; кэш offset и истории сообщений | `app/Cache` |
 | 7. Очереди | RabbitMQ-адаптер, `EventSender` через очередь, обработчик очереди | `app/Queue`, `QueueManagerCommand.php` |
 
-Ответы на вопросы из домашних заданий — в [`docs/HOMEWORK.md`](docs/HOMEWORK.md).
-
 ## Установка
 
 ```bash
